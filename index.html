@@ -56,7 +56,7 @@ html{-webkit-tap-highlight-color:transparent} .page{max-width:1320px} header{fle
 </header>
 <main>
 <div class="hero">
- <div><div class="eyebrow">LOTTO LAB 645 · V3.0 TEST LAB</div><h1>로또 번호,<br><span style="color:var(--mint)">데이터로 살펴보세요.</span></h1><p>과거 당첨번호의 빈도와 조합 패턴을 분석하고, 원하는 조건으로 6개의 번호를 만들어 보세요. <strong>확률을 예측하지 않는</strong> 투명한 통계 분석기입니다.</p><div class="hero-actions"><a class="btn btn-main" href="#generator">번호 조합 만들기 ↗</a><a class="btn" href="#advanced">고급 통계 보기</a><button class="btn btn-warm" id="refreshData" type="button">↻ 최신 데이터 확인</button><button class="btn" id="installApp" type="button" hidden>앱 설치</button></div></div>
+ <div><div class="eyebrow">LOTTO ZOOM 645 · V3.2 TEST LAB</div><h1>로또 번호,<br><span style="color:var(--mint)">데이터로 살펴보세요.</span></h1><p>과거 당첨번호의 빈도와 조합 패턴을 분석하고, 원하는 조건으로 6개의 번호를 만들어 보세요. <strong>확률을 예측하지 않는</strong> 투명한 통계 분석기입니다.</p><div class="hero-actions"><a class="btn btn-main" href="#generator">번호 조합 만들기 ↗</a><a class="btn" href="#advanced">고급 통계 보기</a><button class="btn btn-warm" id="refreshData" type="button">↻ 최신 데이터 확인</button><button class="btn" id="installApp" type="button" hidden>앱 설치</button></div></div>
  <div class="highlight"><div class="highlight-label">현재 데이터의 최신 추첨 결과</div><div class="round-line"><strong id="lastRound">-</strong><span id="lastDate">-</span></div><div class="balls" id="latestBalls"></div><div class="highlight-note" id="latestNote">데이터에 있는 결과를 표시합니다.</div></div>
 </div>
 <p id="syncMessage" class="status-line" role="status">데이터 상태를 확인 중입니다.</p><div id="sampleBanner" class="sample-banner" role="status">현재 화면은 검증된 <strong>5회차 예시 데이터</strong>일 수 있습니다. 인터넷 연결 후 최신 파일을 자동 확인합니다. 전체 데이터가 로딩되지 않으면 아래 CSV 가져오기를 이용하세요. 통계가 실제 다음 당첨번호를 예측하지는 않습니다.</div>
@@ -90,7 +90,8 @@ html{-webkit-tap-highlight-color:transparent} .page{max-width:1320px} header{fle
  <div class="panel"><div class="table-top"><h3>생성된 번호</h3><div style="display:flex;gap:5px;flex-wrap:wrap"><button class="btn btn-sm" id="copyGenerated">복사</button><button class="btn btn-sm" id="exportGenerated">CSV 저장</button><button class="btn btn-sm btn-warm" id="saveGenerated">번호 보관</button></div></div><div class="results" id="generatedList"><div class="result-empty">번호 생성하기를 누르면 이곳에 조합이 표시됩니다.</div></div>
 <div id="diagnosis" class="diagnosis" hidden aria-live="polite"></div><div class="info-banner">모든 서로 다른 6개 번호 조합의 1등 확률은 같습니다. 특정 통계 패턴이나 필터가 당첨 확률을 높여주지는 않습니다.</div></div></div>
 </section>
-<section id="saved"><div class="section-bar"><div><h2>내 번호 보관함 · 당첨번호 비교</h2><p class="desc">이 기기의 브라우저에만 저장됩니다. 실제 복권 당첨 판정을 대신하지 않습니다.</p></div></div><div class="panel"><div class="info-banner"><strong>🎯 회차 지정 · 번호 일치 자동 확인 (v3.1 테스트)</strong><br>저장 시 다음 회차가 자동 지정됩니다. 당첨 데이터가 업데이트되면 이 브라우저에서 저장된 번호의 일치 결과를 다시 계산합니다. 앱을 닫은 상태에서 푸시 알림은 제공하지 않습니다.</div><div class="controls-row" style="margin:10px 0;gap:9px;flex-wrap:wrap"><button class="btn btn-sm" id="checkSaved">저장 번호 결과 다시 확인</button><button class="btn btn-sm" id="exportSaved">저장 번호 CSV 백업</button><label class="btn btn-sm" for="importSaved">번호 백업 불러오기</label><input type="file" id="importSaved" class="file-input" accept=".json,application/json" /></div><p id="savedMeta" class="desc"></p><div class="results" id="savedList"></div></div></section>
+<section id="saved"><div class="section-bar"><div><h2>내 번호 보관함 · 당첨번호 비교</h2><p class="desc">v3.2 전용 저장공간을 사용합니다. v3.1 기록은 변경되지 않으며 JSON 백업으로 가져올 수 있습니다.</p></div></div><div class="panel"><div class="info-banner"><strong>🎯 회차 지정 · 번호 일치 자동 확인 (v3.2 테스트)</strong><br>저장 시 다음 회차가 자동 지정됩니다. 당첨 데이터가 업데이트되면 이 브라우저에서 저장된 번호의 일치 결과를 다시 계산합니다. 앱을 닫은 상태에서 푸시 알림은 제공하지 않습니다.</div><div class="controls-row" style="margin:10px 0;gap:9px;flex-wrap:wrap"><button class="btn btn-sm" id="checkSaved">저장 번호 결과 다시 확인</button><button class="btn btn-sm" id="exportSaved">저장 번호 JSON 백업</button><label class="btn btn-sm" for="importSaved">JSON 백업 불러오기 (합치기/교체)</label><input type="file" id="importSaved" class="file-input" accept=".json,application/json" /></div><p id="savedMeta" class="desc"></p><div class="results" id="savedList"></div></div></section>
+<section id="qaLab"><div class="section-bar"><div><h2>v3.2 안전 테스트 연구소</h2><p class="desc">실제 저장번호를 변경하지 않고, 공개된 과거 회차로 1~5등 판정식을 검증합니다.</p></div></div><div class="panel"><div class="controls-row"><button class="btn btn-main" id="runGradeTests">1~5등 판정 자동 테스트</button></div><div id="gradeTestResults" role="status" class="desc" style="margin-top:14px">테스트 실행 전입니다.</div><div class="info-banner" style="margin-top:15px">실제 구매·당첨을 의미하지 않습니다. 모든 테스트 조합은 메모리에서만 생성하며 보관함에 저장하지 않습니다.</div></div></section>
 <section id="data">
  <div class="section-bar"><div><h2>회차별 당첨 데이터 관리</h2><p class="desc">CSV 파일 불러오기, 직접 입력, 보유 데이터 내보내기</p></div><div class="section-tools"><button id="exportHistory" class="btn btn-sm">현재 데이터 CSV 저장</button></div></div>
  <div class="two-even"><div class="panel"><h3>① 전체 회차 자동 확인 또는 CSV 가져오기</h3><p class="desc">온라인 웹앱은 게시된 JSON 파일을 실행 시 확인합니다. 서버 자동 갱신은 GitHub Pages 배포 및 GitHub Actions 활성화 이후 작동합니다.</p><div class="csv-upload"><a class="btn btn-warm" href="https://cashlogy.kr/lotto/excel" target="_blank" rel="noopener noreferrer">역대 CSV 받기 ↗</a><label class="btn" for="csvFile" role="button">CSV 파일 불러오기</label><input class="file-input" type="file" id="csvFile" accept=".csv,text/csv,.txt" /></div><p class="helper" id="sourceText">출처를 확인 중입니다.</p><p class="helper">지원 형식: drwNo, drwNoDate, n1~n6, bonus 컬럼. 불러오면 현재 회차 데이터가 교체되며 브라우저에 저장됩니다.</p><div id="importMessage" role="status"></div></div>
@@ -111,7 +112,7 @@ window.LOTTO_THEORY={"total":8145060,"joint":[[0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0
 </script>
 <script>
 'use strict';
-// LOTTO LAB 645 v3 test — exact combination baselines; NOT a predictor.
+// LOTTO ZOOM 645 v3 test — exact combination baselines; NOT a predictor.
 const SEED=[
  {round:1247,date:'2026-10-24',nums:[8,14,21,22,42,45],bonus:24},
  {round:1246,date:'2026-10-17',nums:[16,22,23,24,27,28],bonus:6},
@@ -119,7 +120,7 @@ const SEED=[
  {round:1244,date:'2026-10-03',nums:[1,13,18,26,34,38],bonus:25},
  {round:1243,date:'2026-09-26',nums:[9,18,24,38,43,44],bonus:35}
 ];
-const LEGACY_KEY='lotto-lab-645-history-v1', KEY='lotto-lab-v2-history', SAVED_KEY='lotto-lab-v2-saved', DELETED_KEY='lotto-lab-v2-deleted', EDIT_KEY='lotto-lab-v2-manual-overrides';
+const LEGACY_KEY='lotto-lab-645-history-v1', KEY='lotto-lab-v2-history', SAVED_KEY='lotto-zoom-v3-2-saved-isolated', DELETED_KEY='lotto-lab-v2-deleted', EDIT_KEY='lotto-lab-v2-manual-overrides';
 const MIRROR='https://raw.githubusercontent.com/SolidLAB-korea/lotto-lab/codex/lotto-lab/data/draws.json';
 const $=s=>document.querySelector(s);
 const fmt=n=>Number(n).toLocaleString('ko-KR');
@@ -280,7 +281,55 @@ $('#savedList').addEventListener('click',e=>{const b=e.target.closest('[data-uns
 
 $('#checkSaved').addEventListener('click',()=>{drawSaved();$('#savedMeta').scrollIntoView({behavior:'smooth',block:'center'});});
 $('#exportSaved').addEventListener('click',()=>{const payload=JSON.stringify({schema:'lotto-zoom-saved-v1',exportedAt:new Date().toISOString(),saved},null,2);const blob=new Blob([payload],{type:'application/json'});const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='lotto_zoom_saved_backup.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
-$('#importSaved').addEventListener('change',async e=>{try{const f=e.target.files?.[0];if(!f)return;const obj=JSON.parse(await f.text());if(obj.schema!=='lotto-zoom-saved-v1'||!Array.isArray(obj.saved)||obj.saved.length>500)throw Error('올바른 번호 백업 파일이 아닙니다.');const clean=obj.saved.filter(x=>x&&typeof x.id==='string'&&Array.isArray(x.nums)&&x.nums.length===6&&new Set(x.nums).size===6&&x.nums.every(n=>Number.isInteger(n)&&n>=1&&n<=45)&&Number.isInteger(x.targetRound)&&x.targetRound>0).map(x=>({id:x.id,nums:[...x.nums].sort((a,b)=>a-b),targetRound:x.targetRound,created:typeof x.created==='string'?x.created:''}));if(!confirm(`${clean.length}게임을 현재 보관함에 추가할까요?`))return;const keys=new Set(saved.map(x=>`${x.targetRound}:${x.nums.join('-')}`));for(const x of clean){const k=`${x.targetRound}:${x.nums.join('-')}`;if(!keys.has(k)){saved.push(x);keys.add(k);}}saved=saved.slice(-100);writeJSON(SAVED_KEY,saved);drawSaved();alert('번호 백업을 불러왔습니다.');}catch(err){alert('불러오기 실패: '+err.message);}finally{e.target.value='';}});
+function validateBackupEntries(obj){
+ if(obj.schema!=='lotto-zoom-saved-v1'||!Array.isArray(obj.saved)||obj.saved.length>500)throw Error('올바른 번호 백업 파일이 아닙니다.');
+ const clean=[];const keys=new Set();
+ for(const x of obj.saved){
+  if(!x||!Array.isArray(x.nums)||x.nums.length!==6||new Set(x.nums).size!==6||!x.nums.every(n=>Number.isInteger(n)&&n>=1&&n<=45)||!Number.isInteger(x.targetRound)||x.targetRound<1)throw Error('백업 안에 잘못된 번호나 회차가 있습니다.');
+  const nums=[...x.nums].sort((a,b)=>a-b),key=`${x.targetRound}:${nums.join('-')}`;
+  if(keys.has(key))continue;keys.add(key);
+  clean.push({id:crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random(),nums,targetRound:x.targetRound,created:typeof x.created==='string'?x.created:''});
+ }
+ return clean;
+}
+function backupKey(x){return `${x.targetRound}:${[...x.nums].sort((a,b)=>a-b).join('-')}`;}
+$('#importSaved').addEventListener('change',async e=>{
+ try{
+  const f=e.target.files?.[0];if(!f)return;
+  if(f.size>2*1024*1024)throw Error('2MB를 초과하는 백업은 지원하지 않습니다.');
+  const clean=validateBackupEntries(JSON.parse(await f.text()));
+  const existingKeys=new Set(saved.map(backupKey));
+  const novel=clean.filter(x=>!existingKeys.has(backupKey(x)));
+  const choice=prompt(`백업 ${clean.length}게임 / 새 조합 ${novel.length}게임 / 현재 ${saved.length}게임\n\n1 = 새 번호만 합치기 (중복 제외)\n2 = 기존 번호 전부 교체\n0 = 취소\n\n숫자를 입력하세요.`, '1');
+  if(choice===null||choice.trim()==='0')return;
+  if(!['1','2'].includes(choice.trim())){alert('1, 2 또는 0 중 하나를 선택하세요.');return;}
+  let next=choice.trim()==='2'?clean:[...saved,...novel];
+  if(next.length>100){alert(`보관함 최대 100게임 제한입니다. 현재 ${next.length}게임으로 변경할 수 없습니다. 기존 번호를 삭제하거나 백업을 나누어 주세요.`);return;}
+  if(choice.trim()==='2'&&!confirm(`기존 저장번호 ${saved.length}게임을 백업 ${clean.length}게임으로 교체합니다. 계속할까요?`))return;
+  saved=next;writeJSON(SAVED_KEY,saved);drawSaved();
+  alert(`완료: 현재 ${saved.length}게임. ${choice.trim()==='2'?'기존 목록을 교체했습니다.':`중복을 제외한 ${novel.length}게임을 추가했습니다.`}`);
+ }catch(err){alert('불러오기 실패: '+err.message);}finally{e.target.value='';}
+});
+function runGradeTests(){
+ const d=history[0];if(!d){$('#gradeTestResults').textContent='당첨 데이터가 필요합니다.';return;}
+ const w=d.nums,b=d.bonus,others=Array.from({length:45},(_,i)=>i+1).filter(n=>!w.includes(n)&&n!==b);
+ const examples=[
+  ['1등', [...w], '1등 번호 일치'],
+  ['2등', [...w.slice(0,5),b], '2등 번호 일치'],
+  ['3등', [...w.slice(0,5),others[0]], '3등 번호 일치'],
+  ['4등', [...w.slice(0,4),...others.slice(0,2)], '4등 번호 일치'],
+  ['5등', [...w.slice(0,3),...others.slice(0,3)], '5등 번호 일치'],
+  ['미일치', [...w.slice(0,2),...others.slice(0,4)], '미일치'],
+  ['결과대기', [...w], '추첨 전 / 결과 대기']
+ ];
+ const out=examples.map(([label,nums,expected])=>{
+  const actual=rankText(nums,label==='결과대기'?undefined:d);
+  return {label,ok:actual.includes(expected),actual};
+ });
+ const ok=out.filter(x=>x.ok).length;
+ $('#gradeTestResults').innerHTML=`<strong>${d.round}회 당첨 데이터를 이용한 7개 시나리오: ${ok}/7 통과</strong><div style="margin-top:8px">${out.map(x=>`<div>${x.ok?'✅':'❌'} ${x.label}: ${esc(x.actual)}</div>`).join('')}</div>`;
+}
+$('#runGradeTests').addEventListener('click',runGradeTests);
 
 $('#exportHistory').addEventListener('click',exportDraws);
 $('#csvFile').addEventListener('change',async e=>{const f=e.target.files?.[0];if(!f)return;try{const {data,rejected}=parseImported(await f.text());history=data;removed.clear();writeJSON(DELETED_KEY,[]);edits={};writeJSON(EDIT_KEY,edits);userHasOwn=true;lastSource='사용자 CSV';lastUpdated='';page=0;persist();updateAll();notice('#importMessage',`${fmt(data.length)}회 불러옴 · 제외된 행 ${rejected}개`);}catch(err){notice('#importMessage','불러오기 실패: '+err.message,true);}finally{e.target.value='';}});
